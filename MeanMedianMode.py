@@ -9,6 +9,9 @@ Median = Sort the numbers in ascending order
 Mode = Sort the numbers in ascending order
        Find the number with maximum number of occurences
 
+          
+These are used to find the middle value or the central tendency of the data.
+Median/Mean whichever is most near to the actual data points should be used as a representing value for the dataset
 */
 
 
