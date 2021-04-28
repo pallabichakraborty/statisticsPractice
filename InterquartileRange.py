@@ -9,3 +9,66 @@ Step 4: Find the third quartile (Q3(. The third quartile is the median of the da
 Step 5: Calculate IQR by subtracting Q3-Q1
 
 */
+
+                                    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'quartiles' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+def median(sorted_arr,n):
+    if(n%2!=0):
+        return sorted_arr[(n//2)]
+    else:
+        res=(sorted_arr[(n//2)-1]+sorted_arr[(n//2)])/2
+        if (round(res)==res):
+            return round(res)
+        else:
+            return res
+
+
+def quartiles(arr):
+    # Write your code here
+    arr.sort()
+    arrlen=len(arr)
+    
+    Q2=median(arr,arrlen)
+    
+    medianpos=arrlen//2
+    
+    if(arrlen%2!=0):
+        Q1arr=arr[:medianpos]
+        Q3arr=arr[medianpos+1:]
+        
+    else:
+        Q1arr=arr[:medianpos+1]
+        Q3arr=arr[medianpos+1:]
+        
+    Q1=median(Q1arr,len(Q1arr))
+    Q3=median(Q3arr,len(Q3arr))
+    
+    return [Q1,Q2,Q3]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    data = list(map(int, input().rstrip().split()))
+
+    res = quartiles(data)
+
+    fptr.write('\n'.join(map(str, res)))
+    fptr.write('\n')
+                                    
+                                    
+    fptr.write("IQR. : {}".format(res[2]-res[0]))
+    fptr.close()
