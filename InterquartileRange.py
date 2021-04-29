@@ -9,8 +9,7 @@ Step 4: Find the third quartile (Q3(. The third quartile is the median of the da
 Step 5: Calculate IQR by subtracting Q3-Q1
 
 */
-
-                                    #!/bin/python3
+#!/bin/python3
 
 import math
 import os
@@ -25,6 +24,7 @@ import sys
 # The function accepts INTEGER_ARRAY arr as parameter.
 #
 def median(sorted_arr,n):
+    print(sorted_arr)
     if(n%2!=0):
         return sorted_arr[(n//2)]
     else:
@@ -49,8 +49,8 @@ def quartiles(arr):
         Q3arr=arr[medianpos+1:]
         
     else:
-        Q1arr=arr[:medianpos+1]
-        Q3arr=arr[medianpos+1:]
+        Q1arr=arr[:medianpos]
+        Q3arr=arr[medianpos:]
         
     Q1=median(Q1arr,len(Q1arr))
     Q3=median(Q3arr,len(Q3arr))
@@ -68,7 +68,5 @@ if __name__ == '__main__':
 
     fptr.write('\n'.join(map(str, res)))
     fptr.write('\n')
-                                    
-                                    
-    fptr.write("IQR. : {}".format(res[2]-res[0]))
+
     fptr.close()
