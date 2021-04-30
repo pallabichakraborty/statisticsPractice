@@ -1,0 +1,40 @@
+/*
+
+Standard Deviation: https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-spread-quantitative/v/visual-standard-deviation
+*/
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+import statistics
+
+#
+# Complete the 'stdDev' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def stdDev(arr):
+    # Print your answers to 1 decimal place within this function
+    mean = statistics.mean(arr)
+    arrcount=len(arr)
+    
+    sampleVariance = 0
+    
+    for item in arr:
+        sampleVariance+= (item - mean) ** 2
+        
+    sampleVariance/=arrcount-1
+    
+    print(round(sampleVariance**(0.5),2))
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    vals = list(map(int, input().rstrip().split()))
+
+    stdDev(vals)
